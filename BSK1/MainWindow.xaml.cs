@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using BSK1.ViewModels;
+using System.Windows;
 
 namespace BSK1
 {
@@ -10,6 +11,7 @@ namespace BSK1
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new ApplicationViewModel();
         }
     }
 }
