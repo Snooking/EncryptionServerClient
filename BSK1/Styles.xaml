@@ -5,6 +5,9 @@
     <Color x:Key="DarkBackground">#121212</Color>
     <SolidColorBrush x:Key="DarkBackgroundBrush" Color="{StaticResource DarkBackground}"/>
 
+    <Color x:Key="DarkButtonBackground">#232323</Color>
+    <SolidColorBrush x:Key="DarkButtonBackgroundBrush" Color="{StaticResource DarkButtonBackground}"/>
+
     <Color x:Key="Background">#343434</Color>
     <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource Background}"/>
 
@@ -23,7 +26,6 @@
         <Setter Property="Margin" Value="15"/>
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="Foreground" Value="{StaticResource LightFontColorBrush}"/>
-        <Setter Property="Background" Value="{StaticResource ButtonBackgroundBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -34,6 +36,12 @@
             </Setter.Value>
         </Setter>
         <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="{StaticResource DarkButtonBackgroundBrush}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="True">
+                <Setter Property="Background" Value="{StaticResource ButtonBackgroundBrush}"/>
+            </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{StaticResource LightBackgroundBrush}"/>
             </Trigger>
@@ -52,6 +60,8 @@
     <Style BasedOn="{StaticResource BaseTextBlock}" TargetType="{x:Type TextBlock}"/>
 
     <Style x:Key="BaseTextBox" TargetType="{x:Type TextBox}">
+        <Setter Property="Background" Value="{StaticResource LightBackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource LightFontColorBrush}"/>
         <Setter Property="Margin" Value="10"/>
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="Height" Value="20"/>
@@ -84,10 +94,23 @@
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{StaticResource LightBackgroundBrush}"/>
             </Trigger>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="{StaticResource LightBackgroundBrush}"/>
+            </Trigger>
         </Style.Triggers>
     </Style>
 
     <Style BasedOn="{StaticResource BaseListView}" TargetType="{x:Type ListView}"/>
     <Style BasedOn="{StaticResource BaseListViewItem}" TargetType="{x:Type ListViewItem}"/>
+
+    <Style x:Key="BaseProgressBar" TargetType="{x:Type ProgressBar}">
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="Minimum" Value="0"/>
+        <Setter Property="Maximum" Value="100"/>
+        <Setter Property="Background" Value="{StaticResource LightBackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource DarkBackgroundBrush}"/>
+    </Style>
+
+    <Style BasedOn="{StaticResource BaseProgressBar}" TargetType="{x:Type ProgressBar}"/>
 
 </ResourceDictionary>

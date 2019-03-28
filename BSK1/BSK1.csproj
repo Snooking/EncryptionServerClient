@@ -60,6 +60,7 @@
     <Compile Include="ViewModels\ReceiveViewModel.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
     <Compile Include="ViewModels\SendViewModel.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="ViewModels\UsersViewModel.cs" />
     <Compile Include="Views\ApplicationPage.cs" />
     <Compile Include="Views\ReceiveView.xaml.cs">

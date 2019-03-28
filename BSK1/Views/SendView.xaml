@@ -19,8 +19,9 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Text="Path:" Grid.Column="0" VerticalAlignment="Center"/>
-                <TextBox Grid.Column="1"/>
-                <Button Content="Choose file" Padding="2" Grid.Column="2"/>
+                <TextBox Grid.Column="1" Text="{Binding Path}"/>
+                <Button Content="Choose file" Padding="2" Grid.Column="2" 
+                        Command="{Binding ChooseFileCommand}"/>
             </Grid>
 
             <Grid>
@@ -29,10 +30,27 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <ListView/>
-                <ListView Grid.Column="1" ItemsSource="{Binding Algorithms}"/>
+                <ListView ItemsSource="{Binding Users}"
+                          SelectedItem="{Binding SelectedUser}"/>
+                <ListView Grid.Column="1" ItemsSource="{Binding Algorithms}"
+                          SelectedItem="{Binding SelectedAlgorithm}"/>
 
             </Grid>
+
+            <Button HorizontalAlignment="Center" Content="Send"
+                    Command="{Binding SendFileCommand}"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <ProgressBar Grid.Column="1"
+                             Value="{Binding Progress}"/>
+            </Grid>
+
         </StackPanel>
     </Grid>
 </Page>

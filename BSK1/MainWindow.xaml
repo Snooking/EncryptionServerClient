@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:converters="clr-namespace:BSK1.Converters"
         mc:Ignorable="d"
+        WindowState="Maximized"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
 
