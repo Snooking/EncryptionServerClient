@@ -4,6 +4,7 @@
     {
         Send,
         Receive, 
-        Users
+        Users,
+        Register
     }
 }

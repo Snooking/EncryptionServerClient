@@ -14,16 +14,10 @@ namespace BSK1.ViewModels
                 OnPropertyChanged(nameof(CurrentPage));
             }
         }
-        public RelayCommand SendPageCommand { get; set; }
-        public RelayCommand ReceivePageCommand { get; set; }
-        public RelayCommand UsersPageCommand { get; set; }
 
-        public ApplicationViewModel()
-        {
-
-            SendPageCommand = new RelayCommand(() => CurrentPage = ApplicationPage.Send);
-            ReceivePageCommand = new RelayCommand(() => CurrentPage = ApplicationPage.Receive);
-            UsersPageCommand = new RelayCommand(() => CurrentPage = ApplicationPage.Users);
-        }
+        public RelayCommand SendPageCommand => new RelayCommand(() => CurrentPage = ApplicationPage.Send); 
+        public RelayCommand ReceivePageCommand => new RelayCommand(() => CurrentPage = ApplicationPage.Receive);
+        public RelayCommand UsersPageCommand => new RelayCommand(() => CurrentPage = ApplicationPage.Users);
+        public RelayCommand RegisterPageCommand => new RelayCommand(() => CurrentPage = ApplicationPage.Register);
     }
 }

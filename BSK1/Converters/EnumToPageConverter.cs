@@ -20,6 +20,8 @@ namespace BSK1.Converters
                     return new ReceiveView();
                 case ApplicationPage.Users:
                     return new UsersView();
+                case ApplicationPage.Register:
+                    return new RegisterView();
                 default:
                     return new SendView();
             }

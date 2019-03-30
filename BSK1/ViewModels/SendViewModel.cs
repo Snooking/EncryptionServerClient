@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows;
 
 namespace BSK1.ViewModels
 {
@@ -98,17 +97,7 @@ namespace BSK1.ViewModels
                 "CFB",
                 "OFB"
             };
-    Users = new ObservableCollection<User>
-            {
-                new User
-                {
-                    Name = "Test1"
-                },
-                new User
-                {
-                    Name = "Test2"
-                }
-            };
+            Users = GetAllUsers();
         }
 
         private void SendFile()

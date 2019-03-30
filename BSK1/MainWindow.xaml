@@ -19,7 +19,10 @@
             <Button Content="Send" Command="{Binding SendPageCommand}"/>
             <Button Content="Receive" Command="{Binding ReceivePageCommand}"/>
             <Button Content="Users" Command="{Binding UsersPageCommand}"/>
+            <Button Content="Register" Command="{Binding RegisterPageCommand}"/>
         </StackPanel>
+
+        <TextBlock VerticalAlignment="Bottom" Text="CurrentUser"/>
 
         <Border Grid.Column="1"
                 BorderThickness="1"
