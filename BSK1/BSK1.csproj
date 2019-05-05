@@ -55,6 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Crypting\Decrypter.cs" />
+    <Compile Include="Crypting\Encrypter.cs" />
+    <Compile Include="Crypting\FileReader.cs" />
+    <Compile Include="Crypting\FileWriter.cs" />
     <Compile Include="ViewModels\ApplicationViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\ReceiveViewModel.cs" />
@@ -63,7 +67,7 @@
     <Compile Include="ViewModels\SendViewModel.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="ViewModels\UsersViewModel.cs" />
-    <Compile Include="Views\ApplicationPage.cs" />
+    <Compile Include="Models\ApplicationPage.cs" />
     <Compile Include="Views\ReceiveView.xaml.cs">
       <DependentUpon>ReceiveView.xaml</DependentUpon>
     </Compile>

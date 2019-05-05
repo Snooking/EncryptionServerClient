@@ -1,7 +1,10 @@
-﻿using BSK1.Models;
+﻿using BSK1.Crypting;
+using BSK1.Models;
 using Microsoft.Win32;
+using System;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Security.Cryptography;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -9,6 +12,8 @@ namespace BSK1.ViewModels
 {
     internal class SendViewModel : BaseViewModel
     {
+        private const string SendingPath = "E:\\Temp\\";
+
         private string _path;
         public string Path
         {
@@ -75,21 +80,20 @@ namespace BSK1.ViewModels
             }
         }
 
-        public RelayCommand ChooseFileCommand { get; set; }
-        public RelayCommand SendFileCommand { get; set; }
+        public RelayCommand ChooseFileCommand => new RelayCommand(() =>
+        {
+            var fileDialog = new OpenFileDialog();
+            if ((bool)fileDialog.ShowDialog())
+            {
+                Path = fileDialog.FileName;
+            }
+        });
+
+        public RelayCommand SendFileCommand => new RelayCommand(SendFile,
+                (_) => SelectedAlgorithm != null && SelectedUser != null && File.Exists(Path));
 
         public SendViewModel()
         {
-            ChooseFileCommand = new RelayCommand(() =>
-            {
-                var fileDialog = new OpenFileDialog();
-                if ((bool)fileDialog.ShowDialog())
-                {
-                    Path = fileDialog.FileName;
-                }
-            });
-            SendFileCommand = new RelayCommand(SendFile, 
-                (_) => SelectedAlgorithm != null && SelectedUser != null && File.Exists(Path));
             Algorithms = new ObservableCollection<string>
             {
                 "ECB",
@@ -110,6 +114,14 @@ namespace BSK1.ViewModels
                     Progress++;
                 }
             });
+
+            var reader = new FileReader(Path);
+            var text = reader.ReadFile();
+            var encrypter = new Encrypter(text, (CipherMode)Enum.Parse(typeof(CipherMode), SelectedAlgorithm));
+            var encryptedText = encrypter.Encrypt();
+            var fileName = Path.Split('\\');
+            var writer = new FileWriter(SendingPath + fileName[fileName.Length - 1], encryptedText);
+            writer.WriteToFile();
         }
     }
 }

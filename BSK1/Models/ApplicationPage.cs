@@ -1,4 +1,4 @@
-﻿namespace BSK1.Views
+﻿namespace BSK1.Models
 {
     internal enum ApplicationPage
     {

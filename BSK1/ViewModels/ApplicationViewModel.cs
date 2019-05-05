@@ -1,4 +1,4 @@
-﻿using BSK1.Views;
+﻿using BSK1.Models;
 
 namespace BSK1.ViewModels
 {

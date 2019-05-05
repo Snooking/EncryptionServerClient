@@ -9,6 +9,8 @@
 
     <Grid Background="{StaticResource BackgroundBrush}">
         <StackPanel>
+            <TextBlock Text="Register"/>
+            <Border BorderThickness="1" BorderBrush="{StaticResource LightFontColorBrush}"/>
             <Grid Margin="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -29,7 +31,7 @@
                 <PasswordBox Grid.Column="1" PasswordChanged="Password_PasswordChanged"/>
             </Grid>
 
-            <Button Content="Login"
+            <Button Content="Register"
                     HorizontalAlignment="Center"
                     Command="{Binding RegisterCommand}"/>
         </StackPanel>
